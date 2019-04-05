@@ -1,0 +1,96 @@
+body{
+    background-image: url("assets/greenfox.svg");
+    margin: 0;
+    padding: 0;
+}
+#nav{
+    background-color: greenyellow;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: center;
+    position: fixed;
+    top: 0;
+
+}
+
+li{
+    display: inline;
+    background-color: bisque;
+    padding: 20px;
+}
+
+#fox {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+li:hover{
+    background-color: aquamarine;
+}
+
+#uli{
+    list-style-type: none;
+}
+#all {
+    margin: 0 20%;
+    border: solid 30px goldenrod;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    border: 33px solid grey;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+    
+  }
+
+#tlacitko{
+    background-color: blanchedalmond;
+    color: green;
+    border: none;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+}
+
+#header{
+    background-color: pink;
+    padding: 20px;
+    text-align: center;
+    color: rgb(15, 24, 2);
+    font-size: 35px;
+}
+
+textarea{
+    min-height: 80px;
+    padding: 0;
+    border: none;
+    background-color: gold;
+}
+
+#red{
+    background-color: violet;
+    color: white;
+    border: none;
+    height: 30px;
+    width: 50%;
+    box-shadow: none;
+    
+}
+
+#blue{
+    background-color: aqua;
+    color: black;
+    border: 20px dashed burlywood;
+}

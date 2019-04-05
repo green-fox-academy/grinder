@@ -1,0 +1,61 @@
+body{
+    font-family: consolas;
+    margin: 0px;
+}
+
+h1, h2, h3{
+    font-family: oswald;
+}
+
+nav{
+    width: 100%;
+    background-color: #333333;
+    overflow: auto;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+    padding-right: 10%;
+}
+
+#head1{
+    margin: 0px;
+}
+
+li{
+    float: right;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo img{
+    position: absolute;
+    padding-left: 10%;
+    vertical-align: center;
+}
+
+nav a{
+    width:100px;
+    display: block;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+li a{
+    color: #ff0099;
+}
+
+#main{
+    background-image: url("assets/background.png");
+    padding: 10%;
+    
+}
+
+#center{
+    text-align: center;
+}
+
+#main h3{
+    color: #ff0099;
+}

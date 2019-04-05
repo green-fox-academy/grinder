@@ -1,0 +1,19 @@
+#header{
+    background-color: aqua;
+    text-align: center;
+}
+
+.maincontent:after{
+    background-color: blueviolet;
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column{
+    float: left;
+    width: 20%;
+    word-wrap: break-word;
+    padding: 20px; 
+    background-color: yellow;
+}

@@ -1,8 +1,7 @@
 package animalProtection;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
 import static java.lang.Math.random;
 
 public class Main {
@@ -16,6 +15,7 @@ public class Main {
         shelter.listOfAimals.add(cat);
         shelter.listOfAimals.add(dog);
         shelter.listOfAimals.add(parrot);
+        shelter.listOfAimals.add(new Animal("mouse", "mouseOwner", false));
 
         Adaptor tomas = new Adaptor("Tomas");
         Adaptor martin = new Adaptor("Martin");
@@ -28,21 +28,22 @@ public class Main {
         shelter.addAdopter(martin);
         shelter.addAdopter(olaf);
 
-        System.out.println(shelter.listOfAdaptors.size());
-        System.out.println(shelter.listOfAimals.size());
-        System.out.println(shelter.adaptorAndAnimal.size());
+        //System.out.println(shelter.listOfAdaptors.size());
+        //System.out.println(shelter.listOfAimals.size());
+        //System.out.println(shelter.listOfAdaptorAndAnimal.size());
 
         shelter.findNewOwner();
 
-        System.out.println(shelter.listOfAdaptors.size());
-        System.out.println(shelter.listOfAimals.size());
-        System.out.println(shelter.adaptorAndAnimal.size());
+        //.out.println(shelter.listOfAdaptors.size());
+        //System.out.println(shelter.listOfAimals.size());
+        //System.out.println(shelter.listOfAdaptorAndAnimal.size());
 
-        /*for ( i : shelter.adaptorAndAnimal.keySet()) {
-            System.out.println();
-        }*/
+        System.out.println(shelter.listOfAdaptorAndAnimal.size());
+        for (Adaptor adaptor : shelter.listOfAdaptorAndAnimal.keySet()) {
+            System.out.println(adaptor.name + " " + shelter.listOfAdaptorAndAnimal.get(adaptor));
+        }
 
-        shelter.toStringShelter();
+        shelter.toString();
 
     }
 }

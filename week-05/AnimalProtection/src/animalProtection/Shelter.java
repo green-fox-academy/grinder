@@ -12,7 +12,7 @@ public class Shelter {
     List<Animal> listOfAimals = new ArrayList<>();
     List<Adaptor> listOfAdaptors = new ArrayList<>();
     List<Adaptor> listOfPotentionalNewOwners = new ArrayList<>();
-    HashMap<Adaptor, Animal> adaptorAndAnimal = new HashMap();
+    HashMap<Adaptor, Animal> listOfAdaptorAndAnimal = new HashMap();
 
     public Shelter() {
 
@@ -42,7 +42,7 @@ public class Shelter {
         int randomAnimalIndex = (new Random()).nextInt(listOfAimals.size());
         Animal randomAnimal = listOfAimals.get(randomAnimalIndex);
 
-        adaptorAndAnimal.put(randomAdaptor, randomAnimal);
+        listOfAdaptorAndAnimal.put(randomAdaptor, randomAnimal);
         listOfAdaptors.remove(randomAdaptor);
         listOfAimals.remove(randomAnimal);
     }
@@ -50,13 +50,14 @@ public class Shelter {
         budget += donation;
         return budget;
     }
-    public void toStringShelter() {
-        System.out.println("Budget: " + budget + "$,\nThere are " + listOfAimals.size() + " animal(s) and " +
-            listOfPotentionalNewOwners.size() + " potential adopter(s)");
+    public String toString() {
         for (Animal i : listOfAimals) {
             if (i.isHealthy != true) {
-                System.out.println(i.name + " is not healthy (" + i.healCost + "$), and not adoptable");
+                return (i.name + " is not healthy (" + i.healCost + "$), and not adoptable");
             }
         }
+        return ("Budget: " + budget + "$,\nThere are " + listOfAimals.size() + " animal(s) and " +
+                listOfPotentionalNewOwners.size() + " potential adopter(s)");
     }
+
 }

@@ -27,10 +27,11 @@ public class Animal {
         return false;
     }
 
-    public void tostring() {
+    @Override
+    public String toString() {
         if (isHealthy == true) {
-            System.out.println(name + " is healthy, and adoptable");
+            return (name + " is healthy, and adoptable");
         }
-        else System.out.println(name + " is not healthy (" + healCost + "$), and not adoptable");
+        else return (name + " is not healthy (" + healCost + "$), and not adoptable");
     }
 }

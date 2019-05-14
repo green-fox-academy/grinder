@@ -17,5 +17,6 @@ public class Exercise8 {
                 .collect(Collectors.joining());
 
         System.out.println(dog.concat(concatToString));
+        System.out.println(concatToString.concat(dog));
     }
 }

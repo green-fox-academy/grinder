@@ -8,10 +8,11 @@ public class Exercise9 {
         //Write a Stream Expression to find the frequency of characters in a given string!
 
         String string = "greenfoxAcademy";
-        Map<Character, Integer> frequency = string
+        Map<Character, Long> frequency = string
                 .chars()
                 .mapToObj(c -> (char)c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(c -> 1)));
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+                //.collect(Collectors.groupingBy(Character::valueOf, Collectors.counting()));
 
         System.out.println(frequency);
     }

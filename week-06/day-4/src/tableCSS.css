@@ -1,0 +1,63 @@
+body {
+    margin: 10%;
+}
+
+div {
+    width: 400px;
+    height: 400px;
+    background-color: dodgerblue;
+    padding: 40px;
+}
+
+table {
+    width: 400px;
+    height: 400px;
+    font-family: Verdana;
+    border: none;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+th, td {
+    color: dimgrey;
+}
+
+th {
+    background-color: black;
+    text-align: left;
+    color: lightgray;
+    border-bottom: 1px solid grey;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+th:first-child {
+    border-right: 1px solid grey;
+}
+
+tr {
+    border-bottom: 1px solid grey;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+td:first-child {
+    border-right: 1px solid grey;
+}
+
+td {
+    width: 50%;
+}

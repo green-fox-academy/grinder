@@ -1,0 +1,56 @@
+body {
+    background-color: darkgrey;
+}
+
+div {
+    background-color: white;
+    width: 400px;
+    padding: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+header {
+    color: black;
+    font-size: 30px;
+    padding-bottom: 15px;
+}
+#username {
+    color: black;
+    font-size: 12px;
+    padding-bottom: -10px;
+}
+
+#password {
+    color: black;
+    font-size: 12px;
+    padding-top: 25px;
+}
+
+input:focus {
+    border: 2px solid greenyellow;
+    border-radius: 5px;
+}
+
+input {
+    width: 400px;
+    height: 45px;
+    font-size: 45px;
+}
+
+#forgot {
+    text-align: right;
+}
+
+#login {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 50px;
+    padding: 20px 40px;
+    margin-top: 20px;
+    width: 150px;
+}
+

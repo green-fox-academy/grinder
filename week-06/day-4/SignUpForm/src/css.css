@@ -1,0 +1,59 @@
+div {
+    margin: auto;
+    background-color: lightgray;
+    width:500px;
+    padding: 30px 50px;
+
+}
+
+form {
+    background-color: white;
+    border: 1px solid darkgray;
+}
+
+table {
+    padding: 20px;
+}
+
+input {
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid grey;
+    border-left: none;
+    color: grey;
+
+}
+
+button {
+    display: inline-block;
+    border: none;
+    padding: 5px 50px;
+    color: white;
+    border-radius: 3px;
+}
+
+td {
+    padding: 10px;
+}
+
+#facebook {
+    background-color: mediumblue;
+}
+
+#twitter {
+    background-color: dodgerblue;
+}
+
+#google {
+    background-color: red;
+}
+
+#signUpButton {
+    color: white;
+    background-color: forestgreen;
+    padding: 10px 20px;
+}
+
+#signUpRow {
+    padding-top: 35px;
+}

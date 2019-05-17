@@ -2,9 +2,11 @@ package com.basicwebshop.springstart.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ShopList {
-    public static void main(String[] args) {
+
+    public List<ShopItem> buildShopList() {
 
         List<ShopItem> shopList = new ArrayList<>();
 
@@ -14,5 +16,17 @@ public class ShopList {
         shopList.add(new ShopItem("Wokin", "Chicken with fried rice and WOKIN sauce", 119.0, 100));
         shopList.add(new ShopItem("T-shirt", "Blue with a corgi on a bike", 300.0, 1));
 
+        return shopList;
+    }
+
+    public List<ShopItem> onlyAvailableList() {
+
+        List<ShopItem> shopList = buildShopList()
+                .stream()
+                .filter(item -> item.getQuantityOfStock() > 0)
+                .collect(Collectors.toList());
+
+        return shopList;
     }
 }
+

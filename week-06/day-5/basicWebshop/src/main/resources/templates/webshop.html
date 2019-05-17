@@ -19,8 +19,10 @@
     <p>Search for:</p>
 
     <div>
-    <input type="text" placeholder="...something like nike">
-    <button>Search</button>
+        <form id="searchbar" action="/search" method="post">
+            <input type="text" name="search" placeholder="...something like nike">
+            <button id="search" type="submit">search</button>
+        </form>
     </div>
 
     <div>

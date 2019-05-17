@@ -5,6 +5,7 @@ import com.basicwebshop.springstart.model.ShopList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ShowWebshop {
 
     @RequestMapping(value = "/webshop")
     public String buildingList(Model model) {
-    model.addAttribute("items", list);
+        model.addAttribute("items", list);
         return "webshop";
     }
 
@@ -44,16 +45,27 @@ public class ShowWebshop {
     }
 
     @RequestMapping(value = "/average-stock")
-    public String averageStock (Model model) {
+    public String averageStock(Model model) {
         model.addAttribute("average", shopList.averageStock());
 
-    return "average";
+        return "average";
     }
 
     @RequestMapping(value = "/most-expensive")
-    public String mostExpensive (Model model) {
+    public String mostExpensive(Model model) {
         model.addAttribute("mostExpensive", shopList.mostExpensive().getName());
 
-    return "average";
+        return "average";
+    }
+
+    @RequestMapping("/search")
+    public String search(Model model, @RequestParam String search) {
+        if (search != null) {
+            model.addAttribute("items", shopList.getSearchedList(search));
+        }
+        else {
+            search = "0";
+        }
+        return "webshop";
     }
 }

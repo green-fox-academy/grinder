@@ -1,9 +1,6 @@
 package com.basicwebshop.springstart.model;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ShopList {
@@ -68,6 +65,16 @@ public class ShopList {
                 .orElseThrow(NoSuchElementException::new);
 
         return mostExpensive;
+    }
+
+    public List<ShopItem> getSearchedList(String search) {
+
+        List<ShopItem> shopList = buildShopList()
+                .stream()
+                .filter(i -> i.getName().contains(search) || i.getDescription().contains(search))
+                .collect(Collectors.toList());
+
+        return shopList;
     }
 }
 

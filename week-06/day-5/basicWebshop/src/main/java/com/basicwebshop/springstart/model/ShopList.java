@@ -1,6 +1,7 @@
 package com.basicwebshop.springstart.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +28,35 @@ public class ShopList {
                 .collect(Collectors.toList());
 
         return shopList;
+    }
+
+    public List<ShopItem> cheapestFirst() {
+
+        List<ShopItem> shopList = buildShopList()
+                .stream()
+                .sorted(Comparator.comparing(ShopItem::getPrice))
+                .collect(Collectors.toList());
+
+        return shopList;
+    }
+
+    public List<ShopItem> containsNike() {
+
+        List<ShopItem> shopList = buildShopList()
+                .stream()
+                .filter(i -> i.getDescription().contains("Nike") || i.getName().contains("Name"))
+                .collect(Collectors.toList());
+
+        return shopList;
+    }
+
+    public double averageStock() {
+
+        double average = buildShopList()
+                .stream()
+                .mapToDouble(ShopItem::getQuantityOfStock).average().getAsDouble();
+
+        return average;
     }
 }
 

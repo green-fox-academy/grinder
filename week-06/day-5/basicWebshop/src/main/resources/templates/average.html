@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Webshop</title>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+
+<header>My Shop</header><hr>
+
+<div>
+    <button>ONLY AVAILABLE</button>
+    <button>CHEAPEST FIRST</button>
+    <button>CONTAINS NIKE</button>
+    <button>AVERAGE STOCK</button>
+    <button>MOST EXPENSIVE AVAILABLE</button>
+</div>
+
+<p th:text="'Average stock: ' + ${average}"/>
+
+</body>
+</html>

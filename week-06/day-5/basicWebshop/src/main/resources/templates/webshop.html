@@ -33,6 +33,9 @@
             </tr>
             <tr th:each="item : ${items}">
                 <td th:text="${item.getName()}"></td>
+                <td th:text="${item.getDescription()}"></td>
+                <td th:text="${item.getPrice()}"></td>
+                <td th:text="${item.getQuantityOfStock()}"></td>
             </tr>
         </table>
     </div>

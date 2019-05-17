@@ -13,24 +13,40 @@ import java.util.List;
 public class ShowWebshop {
 
     List<ShopItem> list;
-
-    /*public ShowWebshop() {
-        ShopList shopList = new ShopList();
-        list = shopList.onlyAvailableList();*/
+    ShopList shopList = new ShopList();
 
     public ShowWebshop() {
-        ShopList shopList = new ShopList();
-        list = shopList.onlyAvailableList();
+        list = shopList.buildShopList();
     }
 
     @RequestMapping(value = "/webshop")
-    public String webshop() {
+    public String buildingList(Model model) {
+    model.addAttribute("items", list);
         return "webshop";
     }
 
     @RequestMapping(value = "/only-available")
-    public String onlyAvailableItems(Model model) {
+    public String onlyAvailableList(Model model) {
         model.addAttribute("items", list);
         return "webshop";
+    }
+
+    @RequestMapping(value = "/cheapest-first")
+    public String cheapestFirst(Model model) {
+        model.addAttribute("items", list);
+        return "webshop";
+    }
+
+    @RequestMapping(value = "/contains-nike")
+    public String containsNike(Model model) {
+        model.addAttribute("items", list);
+        return "webshop";
+    }
+
+    @RequestMapping(value = "/average-stock")
+    public String averageStock (Model model) {
+        model.addAttribute("average", shopList.averageStock());
+
+    return "average";
     }
 }

@@ -3,6 +3,7 @@ package com.basicwebshop.springstart.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class ShopList {
@@ -57,6 +58,16 @@ public class ShopList {
                 .mapToDouble(ShopItem::getQuantityOfStock).average().getAsDouble();
 
         return average;
+    }
+
+    public ShopItem mostExpensive() {
+
+        ShopItem mostExpensive = buildShopList()
+                .stream()
+                .max(Comparator.comparing(ShopItem::getPrice))
+                .orElseThrow(NoSuchElementException::new);
+
+        return mostExpensive;
     }
 }
 

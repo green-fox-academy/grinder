@@ -49,4 +49,11 @@ public class ShowWebshop {
 
     return "average";
     }
+
+    @RequestMapping(value = "/most-expensive")
+    public String mostExpensive (Model model) {
+        model.addAttribute("mostExpensive", shopList.mostExpensive().getName());
+
+    return "average";
+    }
 }

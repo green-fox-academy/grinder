@@ -13,13 +13,17 @@
         <td>Balance</td>
         <td>Animal Type</td>
         <td>Is king?</td>
+        <td>Good or bad guy</td>
     </tr>
     <tr th:each="bankAccount : ${bankAccounts}">
         <td th:text="${bankAccountStat.index + 1}"></td>
         <td th:text="${bankAccount.getName()}"></td>
         <td th:text="${bankAccount.getBalance()}"></td>
         <td th:text="${bankAccount.getAnimalType()}"></td>
-        <td th:if="${bankAccount.getAnimalType().equals('lion')}" th:text="king"></td>
+        <td>
+            <span style="color: powderblue;" th:if="${bankAccount.getAnimalType().equals('lion')}">Yes</span>
+            <span th:unless="${bankAccount.getAnimalType().equals('lion')}">No</span>
+        </td>
     </tr>
 </table>
 

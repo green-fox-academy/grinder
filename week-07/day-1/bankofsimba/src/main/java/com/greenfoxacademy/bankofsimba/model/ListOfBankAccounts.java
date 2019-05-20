@@ -13,13 +13,13 @@ public class ListOfBankAccounts {
 
         listOfBankAccounts.add(new BankAccount("Simba", 2000.0, "lion"));
         listOfBankAccounts.add(new BankAccount("Scar", 2000, "lion"));
-        listOfBankAccounts.add(new BankAccount("Nala", 2000, "lion"));
+        listOfBankAccounts.add(new BankAccount("Nala", 2000, "lioness"));
         listOfBankAccounts.add(new BankAccount("Timon", 2000, "meerkat"));
         listOfBankAccounts.add(new BankAccount("Zazu", 2000, "bird"));
 
-        /*listOfBankAccounts
+        listOfBankAccounts
                 .stream()
-                .collect(Collectors.toList());*/
+                .collect(Collectors.toList());
 
         return listOfBankAccounts;
     }

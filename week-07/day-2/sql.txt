@@ -1,0 +1,4 @@
+SELECT title FROM movie WHERE director = "Steven Spielberg";
+SELECT movie.year FROM movie WHERE movie.mid IN (SELECT rating.mid FROM rating WHERE stars BETWEEN 4 AND 5) ORDER BY year;
+SELECT title FROM movie WHERE mid NOT IN (SELECT mid FROM rating);
+SELECT name FROM reviewer WHERE rid IN (SELECT rid FROM rating WHERE ratingdate IS NULL);

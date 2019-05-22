@@ -1,5 +1,8 @@
 package com.greenfoxacademy.dependency.model;
 
+import org.springframework.stereotype.Service;
+
+//@Service
 public class RedColor implements MyColor {
 
     @Override

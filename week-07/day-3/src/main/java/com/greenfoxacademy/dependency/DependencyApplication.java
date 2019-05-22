@@ -1,6 +1,7 @@
 package com.greenfoxacademy.dependency;
 
 import com.greenfoxacademy.dependency.model.BlueColor;
+import com.greenfoxacademy.dependency.model.MyColor;
 import com.greenfoxacademy.dependency.model.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,10 +15,11 @@ public class DependencyApplication implements CommandLineRunner {
     BlueColor blueColor;
 
     @Autowired
-    public DependencyApplication (BlueColor blueColor, Printer printer) {
+    MyColor myColor;
+    /*public DependencyApplication (BlueColor blueColor, Printer printer) {
         this.blueColor = blueColor;
         this.printer = printer;
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(DependencyApplication.class, args);
@@ -25,8 +27,9 @@ public class DependencyApplication implements CommandLineRunner {
 
 
     public void run(String... args) throws Exception {
-        printer.log("hello");
-        blueColor.printColor();
+        /*printer.log("hello");
+        blueColor.printColor();*/
+        myColor.printColor();
     }
 }
 

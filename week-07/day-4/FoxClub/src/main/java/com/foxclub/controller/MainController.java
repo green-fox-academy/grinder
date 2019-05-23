@@ -28,13 +28,13 @@ public class MainController {
     }
 
     @RequestMapping(value = "/createFox", method = RequestMethod.POST)
-    public String createFox(@RequestParam String name, String food, String drink) {
+    public String createFox(Model model, @RequestParam String name, String food, String drink) {
         listOfFoxes.add(new Fox(name, food, drink));
         return "createFox";
     }
 
     @RequestMapping("/listOfFoxes")
     public void getList(Model model) {
-        model.addAttribute("listOfFoxes", listOfFoxes);
+        model.addAttribute("fox", listOfFoxes);
     }
 }

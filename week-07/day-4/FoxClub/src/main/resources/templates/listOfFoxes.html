@@ -6,7 +6,13 @@
 </head>
 <body>
 
-<p th:text="${listOfFoxes}"></p>
+
+<div th:each="fox : ${fox}">
+    <p th:text="'the name of your fox is ' + ${fox.getName()}"></p>
+    <p th:text="'your fox eats ' + ${fox.getFood()}"></p>
+    <p th:text="'your fox drinks ' + ${fox.getDrink()}"></p>
+</div>
+
 
 </body>
 </html>

@@ -37,4 +37,22 @@ public class MainController {
     public void getList(Model model) {
         model.addAttribute("fox", listOfFoxes);
     }
+
+    @RequestMapping("/nutritionStore")
+    public String getNutrition(Model model) {
+        model.addAttribute("fox", listOfFoxes);
+        return "nutritionStore";
+    }
+
+    @RequestMapping(value = "/nutritionStore", method = RequestMethod.POST)
+    public String changeNutrition(@RequestParam String name, String food, String drink) {
+        for (Fox fox : listOfFoxes) {
+            if (fox.getName().equals(name))
+                fox.setFood(food);
+            fox.setDrink(drink);
+        }
+        return "/nutritionStore";
+    }
 }
+
+

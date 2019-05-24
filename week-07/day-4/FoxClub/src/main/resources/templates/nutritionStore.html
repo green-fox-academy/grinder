@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:value="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" action="nutritionStore.html">
+<table>
+    <tr>
+        <td>fox</td>
+        <td>
+            <select id="name" name="name">
+                <option th:each="fox : ${fox}" th:text="${fox.name}"></option>
+            </select>
+        </td>
+        <td>food</td>
+        <td>
+            <select id="food" name="food">
+                <option th:each="fox : ${fox}" th:text="${fox.food}"></option>
+            </select>
+        </td>
+        <td>drink</td>
+        <td>
+            <select id="drink" name="drink">
+                <option th:each="fox : ${fox}" th:text="${fox.drink}"></option>
+            </select>
+        </td>
+        <td><input type="submit" value="CHANGE"></input></td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>

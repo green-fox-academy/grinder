@@ -10,6 +10,22 @@ public class Fox {
     String  drink;
     List<String> tricks;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    public void setDrink(String drink) {
+        this.drink = drink;
+    }
+
+    public void setTricks(List<String> tricks) {
+        this.tricks = tricks;
+    }
+
     public String getName() {
         return name;
     }

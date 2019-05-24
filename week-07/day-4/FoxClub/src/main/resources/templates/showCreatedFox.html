@@ -2,11 +2,12 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Fox club</title>
-
+    <title>Title</title>
 </head>
 <body>
-<h1>fox club</h1>
+
+<h1>you just created a fox</h1>
+<p th:text="${name} + ${food} + ${drink}"></p>
 <ul>
     <li><a href="/createFox">create a fox</a></li>
     <li><a href="/listOfFoxes">list of foxes</a></li>

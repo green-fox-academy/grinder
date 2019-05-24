@@ -10,6 +10,13 @@ public class Fox {
     String  drink;
     List<String> tricks;
 
+    public Fox(String name, String food, String drink) {
+        this.name = name;
+        this.food = food;
+        this.drink = drink;
+        this.tricks = new ArrayList<>();
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -40,12 +47,5 @@ public class Fox {
 
     public List<String> getTricks() {
         return tricks;
-    }
-
-    public Fox(String name, String food, String drink) {
-        this.name = name;
-        this.food = food;
-        this.drink = drink;
-        this.tricks = new ArrayList<>();
     }
 }

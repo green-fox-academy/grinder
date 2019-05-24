@@ -30,12 +30,13 @@ public class MainController {
     @RequestMapping(value = "/createFox", method = RequestMethod.POST)
     public String createFox(Model model, @RequestParam String name, String food, String drink) {
         listOfFoxes.add(new Fox(name, food, drink));
-        return "createFox";
+        return "redirect:/showCreatedFox?name=" + name + "&food=" + food + "&drink=" + drink;
     }
 
     @RequestMapping("/listOfFoxes")
-    public void getList(Model model) {
+    public String getList(Model model) {
         model.addAttribute("fox", listOfFoxes);
+        return "listOfFoxes";
     }
 
     @RequestMapping("/nutritionStore")
@@ -44,7 +45,7 @@ public class MainController {
         return "nutritionStore";
     }
 
-    @PostMapping(value = "/nutritionStore")
+    @PostMapping("/nutritionStore")
     public String changeNutrition(@RequestParam String name, String food, String drink) {
         for (Fox fox : listOfFoxes) {
             if (fox.getName().equals(name)) {
@@ -53,6 +54,14 @@ public class MainController {
             }
         }
         return "/nutritionStore";
+    }
+
+    @GetMapping("/showCreatedFox")
+    public String showCreatedFox(Model model, @RequestParam String name, String food, String drink) {
+        model.addAttribute("name", name);
+        model.addAttribute("food", food);
+        model.addAttribute("drink", drink);
+        return "showCreatedFox";
     }
 }
 

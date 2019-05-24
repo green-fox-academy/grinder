@@ -44,12 +44,13 @@ public class MainController {
         return "nutritionStore";
     }
 
-    @RequestMapping(value = "/nutritionStore", method = RequestMethod.POST)
+    @PostMapping(value = "/nutritionStore")
     public String changeNutrition(@RequestParam String name, String food, String drink) {
         for (Fox fox : listOfFoxes) {
-            if (fox.getName().equals(name))
+            if (fox.getName().equals(name)) {
                 fox.setFood(food);
-            fox.setDrink(drink);
+                fox.setDrink(drink);
+            }
         }
         return "/nutritionStore";
     }

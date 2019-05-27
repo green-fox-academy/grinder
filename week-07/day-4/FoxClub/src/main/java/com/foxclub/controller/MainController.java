@@ -24,7 +24,7 @@ public class MainController {
 
     @GetMapping("/createFox")
     public String getCreate() {
-        return "createFox";
+        return "/createFox";
     }
 
     @RequestMapping(value = "/createFox", method = RequestMethod.POST)
@@ -62,6 +62,24 @@ public class MainController {
         model.addAttribute("food", food);
         model.addAttribute("drink", drink);
         return "showCreatedFox";
+    }
+
+    @GetMapping("/removeFox")
+    public String showDeletingFox(Model model) {
+        model.addAttribute("fox", listOfFoxes);
+    return "/removeFox";
+    }
+
+
+
+    @PostMapping("/removeFox")
+    public String removeFox(@RequestParam String name) {
+        for (Fox fox : listOfFoxes) {
+            if (fox.getName().equals(fox.getName())) {
+                listOfFoxes.remove(fox);
+            }
+        }
+        return "/removeFox";
     }
 }
 

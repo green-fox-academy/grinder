@@ -2,11 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Fox club</title>
-
+    <title>Title</title>
 </head>
 <body>
-<h1>fox club</h1>
+
+<form method="post">
+    <select id="name" name="name">
+        <option th:each="fox : ${fox}" th:text="${fox.name}"></option>
+    </select>
+    <input type="submit" value="delete fox">
+</form>
+
 <ul>
     <li><a href="/createFox">create a fox</a></li>
     <li><a href="/listOfFoxes">list of foxes</a></li>

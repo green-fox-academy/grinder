@@ -8,18 +8,21 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SqlprojectApplication implements CommandLineRunner {
+public class SqlprojectApplication /*implements CommandLineRunner*/ {
 
-    @Autowired
-    TodoRepository repo;
+    /*@Autowired
+    TodoRepository repo;*/
 
     public static void main(String[] args) {
         SpringApplication.run(SqlprojectApplication.class, args);
+
     }
 
-    @Override
+    /*@Override
     public void run(String... args) throws Exception {
         repo.save(new Todo("I have to learn", false, false));
+        repo.save(new Todo("For loops", false, true));
+        repo.save(new Todo("sql", true, false));
         System.out.println(repo.count());
-    }
+    }*/
 }

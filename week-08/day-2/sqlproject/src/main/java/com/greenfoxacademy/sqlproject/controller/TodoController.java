@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Id;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -33,8 +35,11 @@ public class TodoController {
     public String list(Model model, @RequestParam boolean done) {
         Iterable<Todo> todos = repo.findAll();
         if(!done) {
-            Stream<Todo> streamFromIterable = StreamSupport.stream(repo.equals(!done));
-            model.addAttribute("todos", streamFromIterable);
+            Iterable<String> iterable = Arrays.asList();
+            StreamSupport.stream(iterable.spliterator(), false)
+                    .filter(d -> d.equals(done == false))
+                    .collect(Collectors.toList());
+            model.addAttribute("todos", iterable );
         } else {
             model.addAttribute("todos", todos);
         }

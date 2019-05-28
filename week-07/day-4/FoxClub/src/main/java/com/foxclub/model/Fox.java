@@ -1,9 +1,19 @@
 package com.foxclub.model;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Fox {
+
+    @Id
+    @GeneratedValue
+    Long id;
 
     String name;
     String food;

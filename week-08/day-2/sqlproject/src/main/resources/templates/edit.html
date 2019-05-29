@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Edit Todo</h1>
+
+<form th:action="@{/edit/{id}(id=${id})}" th:object="${edit}" method="POST">
+    Todo description<input type="text" th:field="*{title}"><br>
+    Urgent<input type="checkbox" th:field="*{urgent}"><br>
+    Done<input type="checkbox" th:field="*{done}"><br>
+    <input type="submit" value="Update"><a href="http://localhost:8080/table" role="button">Cancel</a>
+</form>
+</body>
+</html>

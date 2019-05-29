@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jws.WebParam;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,9 +68,9 @@ public class TodoController {
         return "redirect:/table";
     }
 
-    @DeleteMapping("/{id}/delete")
-    public String deleteTodo(@PathVariable long id) {
-        repo.delete(id);
+    @GetMapping("/{id}/delete")
+    public String deleteTodo(@PathVariable("id") long id) {
+        repo.deleteById(id);
         return "redirect:/table";
     }
 

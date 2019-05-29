@@ -34,16 +34,19 @@ public class TodoController {
     @GetMapping({"/", "/todo"})
     public String list(Model model, @RequestParam boolean done) {
         Iterable<Todo> todos = repo.findAll();
-        if(!done) {
-            Iterable<String> iterable = Arrays.asList();
-            StreamSupport.stream(iterable.spliterator(), false)
-                    .filter(d -> d.equals(done == false))
+        if(done) {
+            List<Todo> falses =
+            StreamSupport.stream(todos.spliterator(), false)
+                    .filter(d -> d.isDone() == true)
                     .collect(Collectors.toList());
-            model.addAttribute("todos", iterable );
+            model.addAttribute("todos", falses);
         } else {
-            model.addAttribute("todos", todos);
+            List<Todo> trues =
+            StreamSupport.stream(todos.spliterator(), false)
+                    .filter(d -> d.isDone() == false)
+                    .collect(Collectors.toList());
+            model.addAttribute("todos", trues);
         }
-
         return "todolist";
     }
 
@@ -52,4 +55,25 @@ public class TodoController {
         model.addAttribute("todos", repo.findAll());
         return "todoTable";
     }
+
+    @GetMapping("/addNewTodo")
+    public String addNewPage() {
+        return "/addNewTodo";
+    }
+
+    @PostMapping("/addNewTodo")
+    public String addNew(@RequestParam String title) {
+        repo.save(new Todo(title));
+        return "redirect:/table";
+    }
+
+    @DeleteMapping("/{id}/delete")
+    public String deleteTodo(@PathVariable long id) {
+        repo.delete(id);
+        return "redirect:/table";
+    }
+
+
+
+
 }

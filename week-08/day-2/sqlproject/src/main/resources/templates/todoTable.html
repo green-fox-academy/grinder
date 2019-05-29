@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<h1>TODOS FOR TODAY</h1>
+
+<a href="/addNewTodo">Add new todo</a><br>
 
 <table>
     <tr>
@@ -16,8 +19,14 @@
     <tr th:each="todo : ${todos}">
         <td th:text="${todo.getId()}"></td>
         <td th:text="${todo.getTitle()}"></td>
-        <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
+        <td th:text="${todo.isUrgent()}"></td>
+        <td>
+            <form action="#" th:action="@{'/delete/{id}'(id=${foo.id})}" th:method="delete" >
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit" id="submitButton"> </button>
+            </form>
+        </td>
     </tr>
 </table>
 

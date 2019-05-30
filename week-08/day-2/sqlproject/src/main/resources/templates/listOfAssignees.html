@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>create assignee</h1>
+<form action="listOfAssignees" method="post">
+    <label>name</label><input name="name" type="text">
+    <label>email</label><input name="email" type="text">
+    <button type="submit">create</button>
+</form>
+<h1>list of assignees</h1>
+
+<table>
+<tr th:each="assignee : ${list}">
+    <td th:text="${assignee.getName()} + ' ' + ${assignee.getEmail()}"></td>
+    <td><a th:href="${assignee.getId()} + '/edit'" th:text="'edit'"></a></td>
+    <td><a th:href="${assignee.getId()} + '/listOfAssignees'" th:text="'delete'"></a></td>
+
+</tr>
+</table>
+
+<h1>Edit Todo</h1>
+
+<form th:action="@{/listOfAssignees/{id}(id=${id})}" th:object="${}" method="POST">
+    Todo description<input type="text" th:field="*{name}"><br>
+    <input type="submit" value="Update">
+</form>
+
+</body>
+</html>

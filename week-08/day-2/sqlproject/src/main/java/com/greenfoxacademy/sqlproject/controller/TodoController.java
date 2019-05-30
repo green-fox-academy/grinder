@@ -20,22 +20,22 @@ import java.util.stream.StreamSupport;
 @Controller
 public class TodoController {
 
-    private TodoRepository repo;
+    private TodoRepository todoRepo;
 
     @Autowired
     public TodoController(TodoRepository repo) {
-        this.repo = repo;
+        this.todoRepo = repo;
     }
 
     @GetMapping("/")
     public String todo(Model model) {
-        model.addAttribute("todos", repo.findAll());
+        model.addAttribute("todos", todoRepo.findAll());
         return "todolist";
     }
 
     @PostMapping("/")
     public String search(Model model, @RequestParam String keyword) {
-        model.addAttribute("todos", repo.find(keyword));
+        model.addAttribute("todos", todoRepo.find(keyword));
         return "todolist";
     }
 
@@ -60,7 +60,7 @@ public class TodoController {
 
     @GetMapping("/table")
     public String table(Model model) {
-        model.addAttribute("todos", repo.findAll());
+        model.addAttribute("todos", todoRepo.findAll());
         return "todoTable";
     }
 
@@ -71,32 +71,32 @@ public class TodoController {
 
     @PostMapping("/addNewTodo")
     public String addNew(@RequestParam String title) {
-        repo.save(new Todo(title));
+        todoRepo.save(new Todo(title));
         return "redirect:/table";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteTodo(@PathVariable("id") long id) {
-        repo.deleteById(id);
+        todoRepo.deleteById(id);
         return "redirect:/table";
     }
 
     @GetMapping("{id}/edit")
     public String editTodo(Model model, @PathVariable long id) {
-        model.addAttribute("edit", repo.findById(id));
+        model.addAttribute("edit", todoRepo.findById(id));
         model.addAttribute("id", id);
         return "edit";
     }
 
     @PostMapping("edit/{id}")
     public String save(@ModelAttribute Todo todo) {
-        repo.save(todo);
+        todoRepo.save(todo);
         return "redirect:/table";
     }
 
     @GetMapping("/afterSearch")
     public String afterSearch(Model model) {
-        model.addAttribute("result", repo.findAll());
+        model.addAttribute("result", todoRepo.findAll());
         return "afterSearch";
     }
 

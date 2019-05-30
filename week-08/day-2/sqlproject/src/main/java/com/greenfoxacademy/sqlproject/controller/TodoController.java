@@ -27,12 +27,19 @@ public class TodoController {
         this.repo = repo;
     }
 
-    /*@GetMapping("/todo")
-    public String todo() {
+    @GetMapping("/")
+    public String todo(Model model) {
+        model.addAttribute("todos", repo.findAll());
         return "todolist";
-    }*/
+    }
 
-    @GetMapping({"/", "/todo"})
+    @PostMapping("/")
+    public String search(Model model, @RequestParam String keyword) {
+        model.addAttribute("todos", repo.find(keyword));
+        return "todolist";
+    }
+
+    /*@GetMapping({"/", "/todo"})
     public String list(Model model, @RequestParam boolean done) {
         Iterable<Todo> todos = repo.findAll();
         if(done) {
@@ -49,7 +56,7 @@ public class TodoController {
             model.addAttribute("todos", trues);
         }
         return "todolist";
-    }
+    }*/
 
     @GetMapping("/table")
     public String table(Model model) {
@@ -86,4 +93,12 @@ public class TodoController {
         repo.save(todo);
         return "redirect:/table";
     }
+
+    @GetMapping("/afterSearch")
+    public String afterSearch(Model model) {
+        model.addAttribute("result", repo.findAll());
+        return "afterSearch";
+    }
+
+
 }

@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 </head>
 <body>
 <a href="/submit">Submit new post</a>
 
 <h1>Trending posts</h1>
-<table>
-<tr th:each="post : ${list}">
-    <td th:text="${post.getId()}"></td>
-    <td>+</td>
-    <td>-</td>
-    <td><a th:href="${post.getUrl()}" th:text="${post.getTitle()}"></a></td>
+<table class="table table-borderless table-dark">
+    <tr th:each="post : ${list}">
+        <td th:text="${post.getRate()}"></td>
+        <td><a th:href="@{'/plus/' + ${post.getId()}}" th:text="'+'"></a></td>
+        <td><a th:href="@{'/minus/' + ${post.getId()}}" th:text="'-'"></a></td>
+        <td><a th:href="${post.getUrl()}" th:text="${post.getTitle()}"></a></td>
 </table>
 
 </body>

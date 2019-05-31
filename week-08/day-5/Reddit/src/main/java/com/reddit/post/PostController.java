@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,6 +34,22 @@ public class PostController {
     @PostMapping("/submit")
     public String createPost(@RequestParam String title, @RequestParam String url) {
         postrepo.save(new Post(title, url));
+        return "redirect:/";
+    }
+
+    @GetMapping("/minus/{id}")
+    public String decrement(@PathVariable Integer id){
+        Post post = postrepo.findById(new Long(id)).get();
+        post.downvote();
+        postrepo.save(post);
+        return "redirect:/";
+    }
+
+    @GetMapping("/plus/{id}")
+    public String increment(@PathVariable Integer id){
+        Post post = postrepo.findById(new Long(id)).get();
+        post.upvote();
+        postrepo.save(post);
         return "redirect:/";
     }
 }

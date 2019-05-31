@@ -12,6 +12,7 @@ public class Post {
     long id;
     String title;
     String url;
+    int rate = 0;
 
     public Post() {
 
@@ -45,4 +46,21 @@ public class Post {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
+    public void upvote() {
+        rate++;
+    }
+
+    public void downvote() {
+        rate -= 1;
+    }
+
 }

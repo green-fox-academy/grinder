@@ -23,12 +23,5 @@
 </tr>
 </table>
 
-<h1>Edit Todo</h1>
-
-<form th:action="@{/listOfAssignees/{id}(id=${id})}" th:object="${}" method="POST">
-    Todo description<input type="text" th:field="*{name}"><br>
-    <input type="submit" value="Update">
-</form>
-
 </body>
 </html>

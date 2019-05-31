@@ -35,10 +35,4 @@ public String addAssignee(Model model, @RequestParam String name, @RequestParam 
         assigneeRepo.deleteById(id);
         return "redirect:/listOfAssignees";
     }
-
-    @PostMapping("listOfAssignees/{id}")
-    public String save(@ModelAttribute Assignee assignee) {
-        assigneeRepo.save(assignee);
-        return "redirect:/listOfAssignees";
-    }
 }

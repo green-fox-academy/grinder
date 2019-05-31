@@ -15,6 +15,7 @@
         <td><a th:href="@{'/plus/' + ${post.getId()}}" th:text="'+'"></a></td>
         <td><a th:href="@{'/minus/' + ${post.getId()}}" th:text="'-'"></a></td>
         <td><a th:href="${post.getUrl()}" th:text="${post.getTitle()}"></a></td>
+        <td th:text="${post.getCreatedAt()}"></td>
 </table>
 
 </body>

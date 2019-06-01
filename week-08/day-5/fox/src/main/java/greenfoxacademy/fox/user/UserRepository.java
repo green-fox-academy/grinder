@@ -1,4 +1,4 @@
-package com.reddit.user;
+package greenfoxacademy.fox.user;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

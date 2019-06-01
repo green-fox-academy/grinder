@@ -1,5 +1,6 @@
 package com.reddit.post;
 
+import com.reddit.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -16,11 +17,13 @@ public class PostController {
 
     PostRepository postrepo;
     RepoService repoService;
+    UserRepository userRepo;
 
     @Autowired
-    public PostController(PostRepository postrepo, RepoService repoService) {
+    public PostController(PostRepository postrepo, RepoService repoService, UserRepository userRepo) {
         this.postrepo = postrepo;
         this.repoService = repoService;
+        this.userRepo = userRepo;
     }
 
     @GetMapping("/")

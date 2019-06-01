@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Fox application</title>
+</head>
+<body>
+
+<h1>Welcome to the Fox application</h1>
+
+<p><a href="/register">create an account for creating your own foxes</a></p>
+
+<p style="color: blue;background: powderblue">Create a fox</p>
+
+<form action="/" method="post">
+    <label>Name:</label><input name="name" type="text" placeholder="type the name">
+    <label>Color:</label><input name="color" type="text" placeholder="choose a color">
+    <button type="submit" class="btn btn-info">CREATE</button>
+</form>
+
+<h1>List of all foxes</h1>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>color</th>
+        <th>delete</th>
+        <th>edit</th>
+    </tr>
+    </thead>
+    <tr th:each="fox : ${listFoxes}">
+        <td th:text="${fox.getId()}"></td>
+        <td th:text="${fox.getName()}"></td>
+        <td th:text="${fox.getColor()}"></td>
+        <td><a th:href="@{'/delete/' + ${fox.getId()}}" th:text="'delete'"></a></td>
+        <td>edit</td>
+    </tr>
+</table>
+
+</body>
+</html>

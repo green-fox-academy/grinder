@@ -17,7 +17,7 @@ public class FoxController {
 
     @GetMapping("/")
     public String getIndex(Model model) {
-        model.addAttribute("listFoxes", foxRepo.findAll());
+        model.addAttribute("listFoxes", foxRepo.orderById());
         return "index";
     }
 

@@ -2,18 +2,14 @@ package greenfoxacademy.fox.user;
 
 import greenfoxacademy.fox.fox.Fox;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue
-    private long id;
+    @Column(length = 20)
     private String name;
     private String password;
 
@@ -27,14 +23,6 @@ public class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

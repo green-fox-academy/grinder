@@ -35,13 +35,12 @@ public class UrlAliasService {
     }
 
     public String getMessage() {
-        if(isAlreadyStored(itemToDisplayed.getAlias())) {
+        if (isAlreadyStored(itemToDisplayed.getAlias())) {
             return "Your alias is already in use!";
-        }
-        else {
+        } else {
             return "Your URL is aliased to " + itemToDisplayed.getAlias() + " and your secret code is " + itemToDisplayed.getSecretCode();
         }
     }
 
-    
+
 }

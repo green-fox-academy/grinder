@@ -1,6 +1,8 @@
 package com.foxclubagain.fox;
 
 import com.foxclubagain.owner.Owner;
+import com.foxclubagain.owner.OwnerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

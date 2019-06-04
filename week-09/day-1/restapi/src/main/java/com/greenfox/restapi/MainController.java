@@ -44,4 +44,9 @@ public class MainController {
             return greet;
         }
     }
+
+    @GetMapping("/appenda/{appendable}")
+    public Object appendA(@RequestParam(required = false) String name, @PathVariable()) {
+
+    }
 }

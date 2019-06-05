@@ -8,10 +8,11 @@
 
 <ul>
     <li><a href="/create">Create a fox!</a></li>
-    <li><a href="/createOwner">Create an owner!</a></li>
 </ul>
 
 <h2>List of foxes</h2>
+
+<a th:if="${count}" th:text="${count}" th:style="${lotFoxes ? 'color: red;' : 'color: black;'}"></a>
 
 <h1 th:text="'Last created fox is ' + ${createdFox.getName()} + '.'"></h1>
 <!--h1 th:text="'This fox is drinking beer ' + ${foxByDrink.getName()} + '.'"></h1-->

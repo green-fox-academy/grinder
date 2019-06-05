@@ -30,4 +30,9 @@ public class FoxService {
         foxRepo.save(fox);
         return fox;
     }
+
+    public long numberFox() {
+        long numberFox = foxRepo.count();
+        return numberFox;
+    }
 }

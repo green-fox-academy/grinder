@@ -3,7 +3,6 @@ package com.foxclubagain.fox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +28,7 @@ public class JsonController {
         return foxRepo.findAll();
     }
 
-    @GetMapping("/foxByDrink")
+    @PostMapping("/foxByDrink")
     public Optional<Fox> foxByDrink() {
         return foxRepo.findFoxByDrink("water");
     }
@@ -43,5 +42,10 @@ public class JsonController {
     public ResponseEntity<Object> deleteById(@PathVariable long id) {
         foxRepo.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/foxWithLowestId")
+    public Optional<Fox> foxWithLowestId() {
+        return foxRepo.foxWithLowestId();
     }
 }

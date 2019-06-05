@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -17,8 +18,19 @@
 <h1 th:text="'Last created fox is ' + ${createdFox.getName()} + '.'"></h1>
 <!--h1 th:text="'This fox is drinking beer ' + ${foxByDrink.getName()} + '.'"></h1-->
 
-<table>
-    <tr th:each="fox : ${list}">
+<table class="table table-hover table-dark">
+    <thead>
+        <td>Name</td>
+        <td>Food</td>
+        <td>Drink</td>
+        <td>Hungry</td>
+        <td>Decrement hungry</td>
+        <td>Increment hungry</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </thead>
+    <tbody>
+    <tr th:each="fox : ${list}" class="table-danger">
         <td th:text="${fox.getName()}"></td>
         <td th:text="${fox.getFood()}"></td>
         <td th:text="${fox.getDrink()}"></td>
@@ -28,6 +40,7 @@
         <td><a th:href="@{'/edit/' + ${fox.getId()}}" th:text="'edit'"></a></td>
         <td><a th:href="@{'/' + ${fox.getId()}}" th:text="'delete'"></a></td>
     </tr>
+    </tbody>
 </table>
 
 </body>

@@ -19,11 +19,11 @@ public class FoxController {
 
     @GetMapping("/")
     public String getIndex(Model model) {
-        if(foxRepo.count() > 2) {
+        if(foxService.numberFox()) {
             model.addAttribute("count", "There are more than 2 foxes now!");
-            model.addAttribute("lotFoxes", foxRepo.count() == 4);
+            model.addAttribute("lotFoxes", foxService.numberFoxfour());
         }
-        model.addAttribute("list", foxRepo.findAll());
+        model.addAttribute("list", foxService.findAll());
         model.addAttribute("createdFox", foxService.lastFox());
         //model.addAttribute("foxByDrink", foxRepo.findFoxByDrink("water"));
         return "index";

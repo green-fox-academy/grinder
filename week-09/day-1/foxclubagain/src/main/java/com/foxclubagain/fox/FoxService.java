@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,8 +32,23 @@ public class FoxService {
         return fox;
     }
 
-    public long numberFox() {
-        long numberFox = foxRepo.count();
-        return numberFox;
+    public boolean numberFox() {
+        if (foxRepo.count() > 2) {
+            return true;
+        }
+        return false;
     }
+
+    public boolean numberFoxfour() {
+        if (foxRepo.count() == 4) {
+            return true;
+        }
+        return false;
+    }
+
+    public List<Fox> findAll() {
+        return foxRepo.findAll();
+    }
+
+
 }

@@ -12,10 +12,10 @@ public interface FoxRepository extends CrudRepository<Fox, Long> {
 
     @Query(value = "SELECT * FROM fox ORDER BY id DESC LIMIT 1", nativeQuery = true)
     Optional<Fox> lastFox();
-
     Optional<Fox> findFoxByDrink(String drink);
     Optional<Fox> findFoxById(Long id);
-
-
     List<Fox> findAll();
+
+    @Query(value = "SELECT * FROM fox ORDER BY id ASC LIMIT 1", nativeQuery = true)
+    Optional<Fox> foxWithLowestId();
 }

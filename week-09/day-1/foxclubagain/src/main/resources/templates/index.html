@@ -21,6 +21,9 @@
         <td th:text="${fox.getName()}"></td>
         <td th:text="${fox.getFood()}"></td>
         <td th:text="${fox.getDrink()}"></td>
+        <td th:text="${fox.getHungry()}"></td>
+        <td><a th:href="@{'/decrement/' + ${fox.getId()}}" th:text="'-'"></a></td>
+        <td><a th:href="@{'/increment/' + ${fox.getId()}}" th:text="'+'"></a></td>
         <td><a th:href="@{'/edit/' + ${fox.getId()}}" th:text="'edit'"></a></td>
         <td><a th:href="@{'/' + ${fox.getId()}}" th:text="'delete'"></a></td>
     </tr>

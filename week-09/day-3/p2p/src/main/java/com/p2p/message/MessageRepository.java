@@ -1,13 +1,12 @@
-package com.foxclubagain.owner;
+package com.p2p.message;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.*;
 import java.util.List;
 
 @Repository
-public interface OwnerRepository extends CrudRepository<Owner, Long> {
+public interface MessageRepository extends CrudRepository<Message, Long> {
 
-
+    List<Message> findAll();
 }

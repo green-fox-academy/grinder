@@ -1,29 +1,23 @@
 package com.foxclubagain.fox;
 
-import com.foxclubagain.owner.Owner;
-import com.foxclubagain.owner.OwnerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Fox {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private long id;
 
     private String name;
     private String food;
     private String drink;
-
-    @ManyToOne
-    Owner owner;
+    private long hungry;
 
     public Fox() {
 
@@ -33,15 +27,7 @@ public class Fox {
         this.name = name;
         this.food = food;
         this.drink = drink;
-    }
-
-    public long getId() {
-
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.hungry = 0;
     }
 
     public String getName() {
@@ -68,11 +54,27 @@ public class Fox {
         this.drink = drink;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public long getId() {
+        return id;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getHungry() {
+        return hungry;
+    }
+
+    public void setHungry(int hungry) {
+        this.hungry = hungry;
+    }
+
+    public void incrementHungry() {
+        hungry++;
+    }
+
+    public void decrementHungry() {
+        hungry--;
     }
 }

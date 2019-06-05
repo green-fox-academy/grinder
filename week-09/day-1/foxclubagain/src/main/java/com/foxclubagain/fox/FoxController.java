@@ -21,7 +21,7 @@ public class FoxController {
     public String getIndex(Model model) {
         model.addAttribute("list", foxRepo.findAll());
         model.addAttribute("createdFox", foxService.lastFox());
-        //model.addAttribute("foxByDrink", foxRepo.findFoxByDrink("beer"));
+        //model.addAttribute("foxByDrink", foxRepo.findFoxByDrink("water"));
         return "index";
     }
 
@@ -55,6 +55,20 @@ public class FoxController {
     public String deleteFox(@PathVariable long id) {
         Fox fox = foxRepo.findById(id).get();
         foxRepo.delete(fox);
+        return "redirect:/";
+    }
+
+    @GetMapping("/increment/{id}")
+    public String incrementHungry(@PathVariable long id) {
+        Fox fox = foxRepo.findById(id).get();
+        fox.incrementHungry();
+        foxRepo.save(fox);
+        return "redirect:/";
+    }
+
+    @GetMapping("/decrement/{id}")
+    public String decrementHungry(@PathVariable long id) {
+        foxService.decrementHungry(id);
         return "redirect:/";
     }
 }

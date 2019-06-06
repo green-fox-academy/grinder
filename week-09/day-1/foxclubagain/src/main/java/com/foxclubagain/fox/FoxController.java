@@ -21,11 +21,14 @@ public class FoxController {
     public String getIndex(Model model) {
         if(foxService.numberFox()) {
             model.addAttribute("count", "There are more than 2 foxes now!");
-            model.addAttribute("lotFoxes", foxService.numberFoxfour());
+        }
+        else {
+            model.addAttribute("count", null);
         }
         model.addAttribute("list", foxService.findAll());
         model.addAttribute("createdFox", foxService.lastFox());
-        //model.addAttribute("foxByDrink", foxRepo.findFoxByDrink("water"));
+        model.addAttribute("lotFoxes", foxService.numberFoxfour());
+        model.addAttribute("drinks", foxService.drinks());
         return "index";
     }
 
@@ -35,7 +38,7 @@ public class FoxController {
     }
 
     @PostMapping("/create")
-    public String login(@RequestParam String name, @RequestParam String food, @RequestParam String drink) {
+    public String create(@RequestParam String name, @RequestParam String food, @RequestParam String drink) {
         foxRepo.save(new Fox(name, food, drink));
         return "redirect:/";
     }
@@ -75,4 +78,19 @@ public class FoxController {
         foxService.decrementHungry(id);
         return "redirect:/";
     }
+
+    @GetMapping("/editdrink/{id}")
+    public String showEditDrink(Model model, @PathVariable long id) {
+        model.addAttribute("drinks", foxService.drinks());
+        return "editdrink";
+    }
+
+    @PostMapping("/editdrink/{id}")
+    public String editDrink(@PathVariable long id, @RequestParam String drink) {
+        Fox fox = foxRepo.findById(id).get();
+        fox.setName(drink);
+        foxRepo.save(fox);
+        return "redirect:/";
+    }
 }
+

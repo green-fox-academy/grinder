@@ -7,19 +7,20 @@
 </head>
 <body>
 
-<ul>
-    <li><a href="/create">Create a fox!</a></li>
-</ul>
+<div class="container">
+    <ul>
+        <li><a href="/create">Create a fox!</a></li>
+    </ul>
 
-<h2>List of foxes</h2>
+    <h2>List of foxes</h2>
 
-<a th:if="${count}" th:text="${count}" th:style="${lotFoxes ? 'color: red;' : 'color: black;'}"></a>
+    <a th:text="${count != null} ? ${count} : 'under two foxes'"
+       th:style="${lotFoxes} ? 'color: green;' : 'color: black;'"></a>
 
-<h1 th:text="'Last created fox is ' + ${createdFox.getName()} + '.'"></h1>
-<!--h1 th:text="'This fox is drinking beer ' + ${foxByDrink.getName()} + '.'"></h1-->
+    <h1 th:text="'Last created fox is ' + ${createdFox.getName()} + '.'"></h1>
 
-<table class="table table-hover table-dark">
-    <thead>
+    <table class="table table-hover table-dark">
+        <thead>
         <td>Name</td>
         <td>Food</td>
         <td>Drink</td>
@@ -28,20 +29,21 @@
         <td>Increment hungry</td>
         <td>Edit</td>
         <td>Delete</td>
-    </thead>
-    <tbody>
-    <tr th:each="fox : ${list}" class="table-danger">
-        <td th:text="${fox.getName()}"></td>
-        <td th:text="${fox.getFood()}"></td>
-        <td th:text="${fox.getDrink()}"></td>
-        <td th:text="${fox.getHungry()}"></td>
-        <td><a th:href="@{'/decrement/' + ${fox.getId()}}" th:text="'-'"></a></td>
-        <td><a th:href="@{'/increment/' + ${fox.getId()}}" th:text="'+'"></a></td>
-        <td><a th:href="@{'/edit/' + ${fox.getId()}}" th:text="'edit'"></a></td>
-        <td><a th:href="@{'/' + ${fox.getId()}}" th:text="'delete'"></a></td>
-    </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <tr th:each="fox : ${list}" class="table-info">
+            <td><a th:href="@{'/editdrink/' + ${fox.getId()}}" th:text="${fox.getName()} + ' '" name="name"></a>click for change the drink</td>
+            <td th:text="${fox.getFood()}"></td>
+            <td th:text="${fox.getDrink()}"></td>
+            <td th:text="${fox.getHungry()}"></td>
+            <td><a th:href="@{'/decrement/' + ${fox.getId()}}" th:text="'-'"></a></td>
+            <td><a th:href="@{'/increment/' + ${fox.getId()}}" th:text="'+'"></a></td>
+            <td><a th:href="@{'/edit/' + ${fox.getId()}}" th:text="'edit'"></a></td>
+            <td><a th:href="@{'/' + ${fox.getId()}}" th:text="'delete'"></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

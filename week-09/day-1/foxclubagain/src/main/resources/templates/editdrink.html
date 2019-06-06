@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+
+<form method="post">
+    <h2>What does THE FOX should drink?</h2>
+    <table>
+        <tr th:each="drink : ${drinks}">
+            <td><input th:value="${drink}" type="radio" name="drink"></td>
+            <td><label th:text="${drink}"></label></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-outline-info">Change</button>
+</form>
+</div>
+
+</body>
+</html>

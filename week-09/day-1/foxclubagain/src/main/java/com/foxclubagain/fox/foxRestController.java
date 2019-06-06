@@ -7,19 +7,23 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class JsonController {
+public class FoxRestController {
 
     FoxRepository foxRepo;
     FoxService foxService;
 
     @Autowired
-    public JsonController(FoxRepository foxRepo, FoxService foxService) {
+    public FoxRestController(FoxRepository foxRepo, FoxService foxService) {
         this.foxRepo = foxRepo;
         this.foxService = foxService;
     }
 
     @GetMapping("/getallfoxes")
     public List<Fox> getAllFoxes() {
+        if(foxRepo.count() < 5) {
+            Error error = new Error("less than 5 foxes");
+            return (List<Fox>) error;
+        }
         return foxRepo.findAll();
     }
 
@@ -28,9 +32,11 @@ public class JsonController {
         return foxRepo.findAll();
     }
 
-    @PostMapping("/foxByDrink")
-    public Optional<Fox> foxByDrink() {
-        return foxRepo.findFoxByDrink("water");
+    @DeleteMapping("/{id}")
+    public String deleteFox(@PathVariable long id) {
+        Fox fox = foxRepo.findById(id).get();
+        foxRepo.delete(fox);
+        return "Deleting fox OK";
     }
 
     @GetMapping("/jsondecrement/{id}")
